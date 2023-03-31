@@ -9,7 +9,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/notes")
+      .get("https://notesappv2-api-production.up.railway.app/api/notes")
       .then((res) => {
         setData(res.data);
       })
@@ -23,7 +23,7 @@ function App() {
       return;
     }
     axios
-      .post("http://localhost:5000/api/notes", {
+      .post("https://notesappv2-api-production.up.railway.app/api/notes", {
         content: userInput,
       })
       .then((res) => {
@@ -34,7 +34,9 @@ function App() {
   };
 
   const clickHandlerDelete = (id) => {
-    axios.delete(`http://localhost:5000/api/notes/${id}`);
+    axios.delete(
+      `https://notesappv2-api-production.up.railway.app/api/notes/${id}`
+    );
     const filteredData = data.filter((note) => note.id !== id);
     setData(filteredData);
   };
